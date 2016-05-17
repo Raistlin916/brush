@@ -10,7 +10,7 @@ canvas.width = 500;
 canvas.height = 500;
 
 const img = new Image()
-img.src = '../assets/ink.png'
+img.src = 'http://raistlin916.github.io/brush/assets/ink.png'
 img.onload = () => {
   const brush = new Brush(canvas, img)
 

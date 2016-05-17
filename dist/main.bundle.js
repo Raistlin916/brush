@@ -128,7 +128,7 @@
 	canvas.height = 500;
 
 	var img = new Image();
-	img.src = '../assets/ink.png';
+	img.src = 'http://raistlin916.github.io/brush/assets/ink.png';
 	img.onload = function () {
 	  var brush = new _Brush2.default(canvas, img);
 
