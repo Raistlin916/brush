@@ -68,6 +68,7 @@
 	    this.canvas = canvas;
 	    this.ctx = canvas.getContext('2d');
 	    this.img = img;
+	    this.percent = 0;
 	  }
 
 	  _createClass(Brush, [{
@@ -75,8 +76,25 @@
 	    value: function render() {
 	      var ctx = this.ctx;
 	      var img = this.img;
+	      var percent = this.percent;
 
-	      ctx.drawImage(img, 0, 0);
+
+	      ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+	      var center = [71, 69.5];
+	      ctx.save();
+	      ctx.lineWidth = 10;
+	      ctx.beginPath();
+	      ctx.moveTo(center[0], center[1]);
+	      ctx.arc(center[0], center[1], 71, -Math.PI * 0.5, -(Math.PI * 0.5 + Math.PI * 2 * percent), true);
+	      ctx.clip();
+	      ctx.drawImage(img, 0, 0, 142.5, 139);
+	      ctx.restore();
+	    }
+	  }, {
+	    key: 'update',
+	    value: function update() {
+	      this.percent += 0.01;
 	    }
 	  }]);
 
@@ -110,10 +128,29 @@
 	canvas.height = 500;
 
 	var img = new Image();
-	img.src = '/assets/ink.png';
+	img.src = '../assets/ink.png';
 	img.onload = function () {
 	  var brush = new _Brush2.default(canvas, img);
-	  brush.render();
+
+	  function start() {
+	    var lastTime = 0;
+	    var appTime = 0;
+	    function r(time) {
+	      requestAnimationFrame(r);
+	      var dt = time - lastTime;
+	      if (dt < 10) return;
+	      if (dt > 100) dt = 16;
+	      lastTime = time;
+	      dt /= 1000;
+	      appTime += dt;
+
+	      brush.update(dt);
+	      brush.render();
+	    }
+	    requestAnimationFrame(r);
+	  }
+
+	  start();
 	};
 
 /***/ },
