@@ -1,16 +1,186 @@
 html, body {
-  margin: 0;
-  padding: 0;
+  position: relative;
+  height: 100%;
   overflow: hidden;
 }
 
-
-#container {
+.anm-element {
   position: absolute;
-  top: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  transform: translate3d(0, 0, 0);
+  overflow: hidden;
+}
+
+.section-start {
   left: 0;
   right: 0;
+  top: 0;
   bottom: 0;
-  max-width: 500px;
-  margin: 0 auto;
+  background-image: url(http://img.yzcdn.cn/public_files/2016/05/18/333e81d037d71283c1b3f1132f08ad41.png);
 }
+
+.logo-brush {
+  top: 60px;
+  left: 160px;
+  width: 100px;
+  height: 100px;
+}
+
+.shop-logo {
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  left: 22px;
+  top: 18px;
+  background-size: contain;
+  border-radius: 50%;
+  opacity: 0;
+  animation: 1s ease-in fadeIn 2s forwards;
+}
+
+.dance-leaf {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-size: contain;
+  background-image: url(http://img.yzcdn.cn/public_files/2016/05/18/4b91ff40193b5ed9ab633b94e67a581e.png);
+  animation: danceLeaf 2s ease-in-out infinite alternate-reverse;
+}
+
+
+@keyframes danceLeaf {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(30px, -25px, 0);
+  }
+}
+
+.leaf {
+  width: 31px;
+  height: 57.5px;
+  left: 0;
+  top: 0;
+  background-image: url(http://img.yzcdn.cn/public_files/2016/05/19/5de290f0cf2c7a5680e77fb473b326aa.png);
+  animation: fadeIn 1s ease-out;
+}
+
+.text-duanwu {
+  width: 250.5px;
+  height: 241.5px;
+  top: 100px;
+  left: 40px;
+}
+
+.poetry {
+  width: 95.5px;
+  height: 138.5px;
+  top: 230px;
+  left: 40px;
+}
+
+.boat {
+  width: 170px;
+  height: 156px;
+  right: -50px;
+  bottom: -50px;
+  background-image: url(http://img.yzcdn.cn/public_files/2016/05/19/346d7ebdc461153723355e29cbee77d8.png);
+  animation: boat 2s ease-out forwards;
+}
+
+
+$boatTargetOffsetX: -50px;
+@keyframes boat {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0;
+  }
+  60% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d($boatTargetOffsetX, -50px, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes boat-float {
+  0% {
+    transform: translate3d($boatTargetOffsetX, -50px, 0);
+  }
+  33% {
+    transform: translate3d($boatTargetOffsetX, -60px, 0);
+  }
+  66% {
+    transform: translate3d($boatTargetOffsetX, -50px, 0);
+  }
+  100% {
+    transform: translate3d($boatTargetOffsetX, -40px, 0);
+  }
+}
+
+.arrow {
+  left: 50%;
+  bottom: 40px;
+  width: 30.5px;
+  height: 32.5px;
+  margin-left: -15px;
+  background-image: url(http://img.yzcdn.cn/public_files/2016/05/19/0665a27abd38d4c0b6b975be089e363e.png);
+  opacity: 0;
+  animation: fadeInDown 3s ease-out 3s infinite;
+}
+
+.wave {
+  left: 0;
+  right: -50px;
+  bottom: 0;
+  height: 16px;
+  background-image: url(http://img.yzcdn.cn/public_files/2016/05/18/be9ae9c0aa94d65abac09cbcdb451bf8.png);
+  background-repeat: repeat;
+  background-size: 50px 16px;
+  animation: wave 2s linear infinite;
+}
+
+@keyframes wave {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(-50px, 0, 0);
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0;
+  }
+  80% {
+    transform: translate3d(0, 20px, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, 20px, 0);
+    opacity: 0;
+  }
+}
+
+
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
